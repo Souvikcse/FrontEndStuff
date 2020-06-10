@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+	margin: 0;
+  background: #ecf0f1;
+}
+.root{
+  display: flex;
+  justify-content: space-between;
+/*   flex-wrap: wrap; */
+}
+.sidebar {
+  height: 100vh;
+  width: 15vw;
+  font-family: raleway;
+  background: #34495e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.fa{
+  font-size: 25px;
+  cursor: pointer;
+  margin: 10px;
+  border-bottom-color: blue; 
+}
+.item {
+  color: white;
+  font-size: 20px;
+  margin: 7px;
+}
+.section{
+  padding: 10px;
+}
+.nav{
+  height: 100vh;
+  display: flex;
+}

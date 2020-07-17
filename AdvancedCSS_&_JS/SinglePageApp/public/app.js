@@ -27,6 +27,11 @@ $(document).ready(function () {
             console.log(err);
         });
     });
+
+    $('.list').on('click', 'li', function(event){
+        var todo = $(this);
+        updateTodo(todo);
+    });
 });
 
 function showtodos(todos){
@@ -54,4 +59,21 @@ function addTodo(todo){
         newtodo.addClass("done");
     }
     $('.list').append(newtodo);
-}
+};
+
+function updateTodo(todo) {
+    var updateurl = "/api/" + todo.data("id");
+    var isdone = todo.data("completed");
+    var updatedTodo = {completed: !isdone};
+    $.ajax({
+        type: "PUT",
+        url: updateurl,
+        data: updatedTodo
+    })
+    .then(function(v){
+        todo.toggleClass("done");
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+};

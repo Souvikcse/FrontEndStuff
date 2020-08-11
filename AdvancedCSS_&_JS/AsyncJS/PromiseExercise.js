@@ -2,13 +2,10 @@ function getMostFollowers(...arr){
     var baseUrl = `https://api.github.com/users/`;
     var pros = arr.map(value => $.getJSON(baseUrl + value + `/followers`));
 
-    return Promise.all(pros)
-    .then((ar) => {
-        return ar.sort((a,b) => a.length < b.length)[0].length;
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+    let ar = await Promise.all(pros);
+    ar.sort((a,b) => a.length < b.length);
+
+    console.log(ar[0].length);
 }
 
 function starWarsString(num){
